@@ -1,0 +1,5 @@
+auth:
+  clientProtocol: tls
+  tls:
+    type: "pem"
+    existingSecrets: ["kafka-tls"]
