@@ -8,33 +8,22 @@ metadata:
   namespace: default
 spec:
   initContainers:
-  - name: code
-    image: ruby
-    command: ['/bin/sh', "-c"]
-    args: 
+  containers:
+  - command: ['/bin/sh', "-c"]
+    args:
     - git clone https://github.com/franktylerva/kafka-ruby.git code;
       cd code;
-      bundle install;
-    volumeMounts:
-    - name: code
-      mountPath: "/code"
-  containers:
-  - command:
-    - sleep
-    - infinity
+      bundle install --gemfile=/code/Gemfile;
+      sleep infinity;
     image: ruby
     name: ruby
     volumeMounts:
-    - name: code
-      mountPath: "/code"
     - name: tls-volume
       readOnly: true
       mountPath: "/tmp/tls"
   dnsPolicy: ClusterFirst
   restartPolicy: Never
   volumes:
-  - name: code
-    emptyDir: {}
   - name: tls-volume
     secret:
       secretName: ruby-client
