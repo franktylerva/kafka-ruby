@@ -1,0 +1,1 @@
+ruby consumer.rb --config ./rdkafka.config --topic test1
