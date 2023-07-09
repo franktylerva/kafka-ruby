@@ -1,5 +1,7 @@
 # kafka-ruby
 
+A simple producer/consumer example that utilizes mutual tls (mtls) connections to Kafka.  Certificates involved are managed by cert-manager.
+
 Deploy cert-manager to your Kubernetes cluster.
 ```
 helm install cert-manager oci://registry-1.docker.io/bitnamicharts/cert-manager -f cert-manager/values.yaml
