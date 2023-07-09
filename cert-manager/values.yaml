@@ -4,4 +4,4 @@ controller:
   - --feature-gates=AdditionalCertificateOutputFormats=true
 webhook:
   extraArgs: 
-  - --feature-gates=AdditionalCertificateOutputFormats=true:cer
+  - --feature-gates=AdditionalCertificateOutputFormats=true
