@@ -17,6 +17,22 @@ spec:
       sleep infinity;
     image: ruby
     name: ruby
+    env:
+    - name: TLS_KEY
+      valueFrom:
+        secretKeyRef:
+          name: ruby-client
+          key: tls.key
+    - name: TLS_CRT
+      valueFrom:
+        secretKeyRef:
+          name: ruby-client
+          key: tls.crt
+    - name: CA_CRT
+      valueFrom:
+        secretKeyRef:
+          name: ruby-client
+          key: ca.crt
     volumeMounts:
     - name: tls-volume
       readOnly: true
