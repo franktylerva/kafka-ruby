@@ -77,11 +77,11 @@ class CCloud
 
   def rdkafka_base_config
     {
-      :"bootstrap.servers" => ENV["BOOTSTRAP_SERVERS"],
-      :"security.protocol" => ENV["SECURITY_PROTOCOL"],
-      :"ssl.key.pem" => ENV["TLS_KEY"],
-      :"ssl.certificate.pem" => ENV["TLS_CRT"],
-      :"ssl.ca.pem" => ENV["CA_CRT"],
+      :"bootstrap.servers" => @config[:'bootstrap.servers']
+      # :"security.protocol" => ENV["SECURITY_PROTOCOL"],
+      # :"ssl.key.pem" => ENV["TLS_KEY"],
+      # :"ssl.certificate.pem" => ENV["TLS_CRT"],
+      # :"ssl.ca.pem" => ENV["CA_CRT"],
     }
   end
 
