@@ -17,26 +17,6 @@ spec:
       sleep infinity;
     image: ruby
     name: ruby
-    env:
-    - name: TLS_KEY
-      valueFrom:
-        secretKeyRef:
-          name: ruby-client
-          key: tls.key
-    - name: TLS_CRT
-      valueFrom:
-        secretKeyRef:
-          name: ruby-client
-          key: tls.crt
-    - name: CA_CRT
-      valueFrom:
-        secretKeyRef:
-          name: ruby-client
-          key: ca.crt
-    - name: BOOTSTRAP_SERVERS
-      value: "kafka-0.kafka-headless.default.svc.cluster.local:9092"
-    - name: SECURITY_PROTOCOL
-      value: "SSL"
     volumeMounts:
     - name: tls-volume
       readOnly: true
