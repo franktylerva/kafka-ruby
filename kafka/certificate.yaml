@@ -8,7 +8,7 @@ spec:
   - kafka-0.kafka-headless.default.svc.cluster.local
   - kafka-headless.default.svc.cluster.local
   - kafka.default.svc.cluster.local
-  duration: 1h
+  duration: 24h
   secretName: kafka-tls
   additionalOutputFormats:
   - type: CombinedPEM
