@@ -27,14 +27,10 @@ kubectl apply -f kafka/ruby-pod.yaml
 
 Open up a terminal and lanuch a consumer.
 ```
-kubectl exec --tty -i ruby -- bash
-cd code
-./consumer.sh
+kubectl exec --tty -i ruby -- /code/consumer.sh
 ```
 
 In a separate terminal, produce some messages.
 ```
-kubectl exec --tty -i ruby -- bash
-cd code
-./producer.sh
+kubectl exec --tty -i ruby -- /code/producer.sh
 ```
