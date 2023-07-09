@@ -77,11 +77,11 @@ class CCloud
 
   def rdkafka_base_config
     {
-      :"bootstrap.servers" => @config[:'bootstrap.servers'],
-      # :"sasl.mechanism" => "PLAIN",
-      # :"security.protocol" => "SASL_SSL",
-      # :"sasl.username" => @config[:'sasl.username'],
-      # :"sasl.password" => @config[:'sasl.password'],
+      :"bootstrap.servers" => ENV["BOOTSTRAP_SERVERS"],
+      :"security.protocol" => "SECURITY_PROTOCOL",
+      :"ssl.key.pem" => ENV["TLS_KEY"],
+      :"ssl.certificate.pem" => ENV["TLS_CRT"],
+      :"ssl.ca.pem" => ENV["CA_CRT"],
     }
   end
 
@@ -93,6 +93,7 @@ class CCloud
     config = @config
     config[:"group.id"] = "ruby_example_group_1"
     config[:"auto.offset.reset"] = "earliest"
+    config[:"allow.auto.create.topics"] = "true"
     Rdkafka::Config.new(config)
   end
 
