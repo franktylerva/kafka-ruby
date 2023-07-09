@@ -1,24 +1,18 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: kafka-tls-0
+  name: kafka-tls
 spec:
-  commonName: broker-0
+  commonName: kafka
+  dnsNames:
+  - kafka-0.kafka-headless.default.svc.cluster.local
+  - kafka-headless.default.svc.cluster.local
+  - kafka.default.svc.cluster.local
   duration: 1h
-  secretName: kafka-tls-0
-  issuerRef:
-    name: selfsigned-cluster-issuer
-    kind: ClusterIssuer
-    group: cert-manager.io
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: kafka-producer
-spec:
-  commonName: kafka-producer
-  duration: 1h
-  secretName: kafka-producer
+  secretName: kafka-tls
+  additionalOutputFormats:
+  - type: CombinedPEM
+  - type: DER
   issuerRef:
     name: selfsigned-cluster-issuer
     kind: ClusterIssuer
@@ -32,6 +26,9 @@ spec:
   commonName: ruby-client
   duration: 1h
   secretName: ruby-client
+  additionalOutputFormats:
+  - type: CombinedPEM
+  - type: DER
   issuerRef:
     name: selfsigned-cluster-issuer
     kind: ClusterIssuer
