@@ -86,7 +86,7 @@ class CCloud
   end
 
   def rdkafka_admin_config
-    Rdkafka::Config.new(rdkafka_base_config)
+    Rdkafka::Config.new(@config)
   end
 
   def rdkafka_consumer_config

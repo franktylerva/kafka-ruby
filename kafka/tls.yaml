@@ -1,6 +1,7 @@
 auth:
   clientProtocol: mtls
   externalClientProtocol: mtls
+  controllerProtocol: mtls
   tls:
     type: "pem"
     existingSecrets: ["kafka-tls"]
