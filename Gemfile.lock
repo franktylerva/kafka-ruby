@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    digest-crc (0.6.5)
+      rake (>= 12.0.0, < 14.0.0)
     ffi (1.15.5)
     mini_portile2 (2.8.2)
     rake (13.0.6)
@@ -8,12 +10,15 @@ GEM
       ffi (~> 1.15)
       mini_portile2 (~> 2.6)
       rake (> 12)
+    ruby-kafka (1.5.0)
+      digest-crc
 
 PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
   rdkafka
+  ruby-kafka
 
 BUNDLED WITH
    2.4.15
